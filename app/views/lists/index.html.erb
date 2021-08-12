@@ -1,5 +1,9 @@
 <div class="container">
-  <h1 class="my-4 text-center">All the lists!</h1>
+  <% if @lists.any? %>
+    <h1 class="my-4 text-center">All the lists!</h1>
+  <% else %>
+    <h1 class="my-4 text-center">No list yet :(</h1>
+  <% end %>
   <div class="cards">
     <% @lists.each do |list| %>
       <%= render 'lists/card', list: list %>

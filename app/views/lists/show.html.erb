@@ -2,6 +2,7 @@
 <div class="d-flex justify-content-between">
   <div>
     <h1><%= @list.name %></h1>
+    <%= link_to '🗑', list_path(@list), method: :delete, data: { confirm: "Do you really want to delete the list"} %>
   </div>
   <div class="stick-top">
     <%= link_to new_list_bookmark_path(@list) do %>
