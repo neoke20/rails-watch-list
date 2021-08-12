@@ -1,5 +1,14 @@
 <div class="container text-center my-4">
-  <h1><%= @list.name %></h1>
+<div class="d-flex justify-content-between">
+  <div>
+    <h1><%= @list.name %></h1>
+  </div>
+  <div class="stick-top">
+    <%= link_to new_list_bookmark_path(@list) do %>
+      <span style="font-size: 28px;" class="sticky-top"><i class="fas fa-photo-video"></i> <i class="fas fa-plus"></i></span>
+    <% end %>
+  </div>
+</div>
   <div class="cards">
   <% @list.bookmarks.each do |bookmark| %>
     <div class="card" style="width: 18rem;">
