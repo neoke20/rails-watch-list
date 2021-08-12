@@ -1,9 +1,15 @@
 <div class="container text-center my-4">
   <h1><%= @list.name %></h1>
-  <p><% @list.bookmarks.each do |bookmark| %>
-    <%= bookmark.comment %>
-    <%= bookmark.movie.title %>
-    <%= image_tag bookmark.movie.poster_url, :size => "200x300" %>
+  <div class="cards">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag bookmark.movie.poster_url, :size => "286x429" %>
+      <div class="card-body">
+        <p><strong><%= bookmark.movie.title %></strong></p>
+        <p class="card-text"><%= bookmark.comment %></p>
+        <%= link_to 'Delete', list_bookmark_path(bookmark), method: :delete, data: { confirm: "Do you really want to delete the bookmark"} %>
+      </div>
+    </div>
   <% end %>
-  </p>
+  </div>
 </div>
