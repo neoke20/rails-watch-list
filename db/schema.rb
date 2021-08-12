@@ -27,22 +27,19 @@ ActiveRecord::Schema.define(version: 2021_08_12_041307) do
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
-    t.bigint "movie_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["movie_id"], name: "index_lists_on_movie_id"
   end
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.string "overview"
     t.string "poster_url"
-    t.integer "rating"
+    t.float "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "bookmarks", "lists"
   add_foreign_key "bookmarks", "movies"
-  add_foreign_key "lists", "movies"
 end
