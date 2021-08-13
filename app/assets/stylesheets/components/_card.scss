@@ -31,32 +31,29 @@
   grid-gap: 16px;
   margin-bottom: 32px;
 }
+.rating-pill-orange {
+  padding: 8px 8px;
+  background-color: $orange;
+  border-radius: 24px;
+  color: white;
+}
+.rating-pill-red {
+  padding: 8px 8px;
+  background-color: $red;
+  border-radius: 24px;
+  color: white;
+}
+.rating-pill-green {
+  padding: 8px 8px;
+  background-color: $green;
+  border-radius: 24px;
+  color: white;
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
     grid-template-columns: 1fr;
   }
-  .movie-card {
-    padding-left: 90px;
-  }
-}
-.rating-pill-orange {
-  padding: 5px 5px;
-  background-color: $orange;
-  border-radius: 50%;
-  color: white;
-}
-.rating-pill-red {
-  padding: 5px 5px;
-  background-color: $red;
-  border-radius: 50%;
-  color: white;
-}
-.rating-pill-green {
-  padding: 5px 5px;
-  background-color: $green;
-  border-radius: 50%;
-  color: white;
 }
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 768px) {
@@ -64,9 +61,6 @@
     grid-template-columns: 1fr;
     justify-content: center;
     align-items: center;
-  }
-  .movie-card {
-    padding-left: 90px;
   }
 }
 
