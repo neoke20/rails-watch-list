@@ -1,7 +1,7 @@
 <div class="container text-center my-4">
 <div class="d-flex justify-content-between">
   <div>
-    <h1><%= @list.name.capitalize %><span style="font-size: 24px;"> <%= link_to list_path(@list), method: :delete, data: { confirm: "Do you really want to delete the #{@list.name.capitalize} list?"} do %><i class="far fa-trash-alt"></i><% end %></span></h1>
+    <h1 class="mb-4"><%= @list.name.capitalize %><span style="font-size: 24px;"> <%= link_to list_path(@list), method: :delete, data: { confirm: "Do you really want to delete the #{@list.name.capitalize} list?"} do %><i class="far fa-trash-alt"></i><% end %></span></h1>
   </div>
   <div class="stick-top">
     <%= link_to new_list_bookmark_path(@list) do %>
