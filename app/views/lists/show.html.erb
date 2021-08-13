@@ -17,9 +17,9 @@
       <div class="card-body">
         <p><strong><%= bookmark.movie.title %></strong></p>
         <p class="card-text"><%= bookmark.comment %></p>
-        <% if bookmark.movie.rating < 7 %>
+        <% if bookmark.movie.rating < 7.0 %>
           <span class="rating-pill-red"><%= bookmark.movie.rating %></span></p>
-        <% elsif bookmark.movie.rating > 7 && bookmark.movie.rating < 8 %>
+        <% elsif bookmark.movie.rating > 7.0 && bookmark.movie.rating < 8 %>
           <span class="rating-pill-orange"><%= bookmark.movie.rating %></span></p>
         <% else %>
           <span class="rating-pill-green"><%= bookmark.movie.rating %></span></p>
