@@ -9,7 +9,7 @@
     <% end %>
   </div>
 </div>
-  <div class="cards">
+  <div class="cards movie-card">
   <% @list.bookmarks.each do |bookmark| %>
     <div class="card" style="width: 18rem;">
       <%= image_tag bookmark.movie.poster_url, :size => "286x429" %>
