@@ -6,7 +6,11 @@
   <% end %>
   <div class="cards">
     <% @lists.each do |list| %>
-      <%= render 'lists/card', list: list %>
+      <% if list.photo.attached? %>
+        <%= render 'lists/customized_card', list: list %>
+      <% else %>
+        <%= render 'lists/card', list: list %>
+      <% end %>
     <% end %>
   </div>
 </div>
