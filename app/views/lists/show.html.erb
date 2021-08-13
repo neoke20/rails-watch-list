@@ -15,7 +15,14 @@
       <%= image_tag bookmark.movie.poster_url, :size => "286x429" %>
       <div class="card-body">
         <p><strong><%= bookmark.movie.title %></strong></p>
-        <p class="card-text"><%= bookmark.comment %></p>
+        <p class="card-text"><%= bookmark.comment %>
+        <% if bookmark.movie.rating < 7 %>
+          <span class="rating-pill-red"><%= bookmark.movie.rating %></span></p>
+        <% elsif bookmark.movie.rating > 7 && bookmark.movie.rating < 8 %>
+          <span class="rating-pill-orange"><%= bookmark.movie.rating %></span></p>
+        <% else %>
+          <span class="rating-pill-green"><%= bookmark.movie.rating %></span></p>
+        <% end %>
         <%= link_to 'Delete', list_bookmark_path(bookmark), class: 'btn btn-danger', method: :delete, data: { confirm: "Do you really want to delete #{bookmark.movie.title} from the list?"} %>
       </div>
     </div>

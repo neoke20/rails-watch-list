@@ -40,7 +40,24 @@
     padding-left: 90px;
   }
 }
-
+.rating-pill-orange {
+  padding: 5px 5px;
+  background-color: $orange;
+  border-radius: 50%;
+  color: white;
+}
+.rating-pill-red {
+  padding: 5px 5px;
+  background-color: $red;
+  border-radius: 50%;
+  color: white;
+}
+.rating-pill-green {
+  padding: 5px 5px;
+  background-color: $green;
+  border-radius: 50%;
+  color: white;
+}
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 768px) {
   .cards {
