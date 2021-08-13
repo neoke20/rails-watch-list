@@ -1,14 +1,33 @@
-puts "Cleaning the Database"
-Movie.destroy_all
-List.destroy_all
-Bookmark.destroy_all
-puts "Database cleaned"
+# puts "Cleaning the Database"
+# Movie.destroy_all
+# List.destroy_all
+# Bookmark.destroy_all
+# puts "Database cleaned"
 
-puts "creating movies"
-Movie.create(title: "Wonder Woman 1984", overview: "Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s", poster_url: "https://image.tmdb.org/t/p/original/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg", rating: 6.9)
-Movie.create(title: "The Shawshank Redemption", overview: "Framed in the 1940s for double murder, upstanding banker Andy Dufresne begins a new life at the Shawshank prison", poster_url: "https://image.tmdb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", rating: 8.7)
-Movie.create(title: "Titanic", overview: "101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic.", poster_url: "https://image.tmdb.org/t/p/original/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg", rating: 7.9)
-Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century.", poster_url: "https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg", rating: 7.0)
-List.create(name: "Drama")
-List.create(name: "All time favourites")
-List.create(name: "Girl power")
+# puts "creating movies"
+# Movie.create(title: "Wonder Woman 1984", overview: "Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s", poster_url: "https://image.tmdb.org/t/p/original/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg", rating: 6.9)
+# Movie.create(title: "The Shawshank Redemption", overview: "Framed in the 1940s for double murder, upstanding banker Andy Dufresne begins a new life at the Shawshank prison", poster_url: "https://image.tmdb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", rating: 8.7)
+# Movie.create(title: "Titanic", overview: "101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic.", poster_url: "https://image.tmdb.org/t/p/original/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg", rating: 7.9)
+# Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century.", poster_url: "https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg", rating: 7.0)
+# List.create(name: "Drama")
+# List.create(name: "All time favourites")
+# List.create(name: "Girl power")
+
+require 'open-uri'
+(1..499).each do |page|
+  url = "http://tmdb.lewagon.com/movie/popular?page=#{page}"
+  movie_data = URI.open(url).read
+  data = JSON.parse(movie_data)
+  movies = data['results']
+  puts 'Cleaning the db...'
+  puts 'Creating movies...'
+  movies.each do |movie|
+  Movie.create!(
+    title: movie['original_title'],
+    overview: movie['overview'],
+    rating: movie['vote_average'],
+    poster_url: "https://image.tmdb.org/t/p/original#{movie['poster_path']}"
+  )
+  end
+end
+puts "Created #{Movie.count} movies."

@@ -23,7 +23,22 @@
   bottom: 0;
   width: 100%;
 }
-
+.img-relative {
+  position: relative;
+}
+.img-info {
+  position: absolute;
+  top: 0;
+  bottom: 181px;
+  width: 100%;
+  color: transparent;
+    &:hover {
+    background-color: $timberwolf-transparent;
+    color: black;
+    // text-shadow: 1px 1px 0px #44434391;
+    padding: 80px 8px 0 8px;
+  }
+}
 // Grid for the cards
 .cards {
   display: grid;
@@ -33,24 +48,33 @@
 }
 .rating-pill-orange {
   margin-top: 4px;
-  padding: 8px 8px;
+  padding: 4px 4px;
   background-color: $orange;
   border-radius: 24px;
   color: white;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 .rating-pill-red {
   margin-top: 4px;
-  padding: 8px 8px;
+  padding: 4px 4px;
   background-color: $red;
   border-radius: 24px;
   color: white;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 .rating-pill-green {
   margin-top: 4px;
-  padding: 8px 8px;
+  padding: 4px 4px;
   background-color: $green;
   border-radius: 24px;
   color: white;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

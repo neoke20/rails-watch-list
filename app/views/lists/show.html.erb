@@ -12,10 +12,11 @@
   <div class="cards">
   <% @list.bookmarks.each do |bookmark| %>
     <div class="card" style="width: 18rem;">
-      <%= image_tag bookmark.movie.poster_url, :size => "286x429" %>
+      <%= image_tag bookmark.movie.poster_url, :size => "286x429", class: 'img-relative' %>
+      <div class="img-info"><%= bookmark.movie.overview %></div>
       <div class="card-body">
         <p><strong><%= bookmark.movie.title %></strong></p>
-        <p class="card-text"><%= bookmark.comment %>
+        <p class="card-text"><%= bookmark.comment %></p>
         <% if bookmark.movie.rating < 7 %>
           <span class="rating-pill-red"><%= bookmark.movie.rating %></span></p>
         <% elsif bookmark.movie.rating > 7 && bookmark.movie.rating < 8 %>
